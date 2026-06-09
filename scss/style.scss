@@ -36,9 +36,12 @@ Project:	Eric
 @import "default-skin/default-skin.css";	
 @import "lightgallery.css";
 
-$primery_font_color:#fff;
-$secondery_color:#141414;
-$background_color:#141414;
+$primery_font_color:#e6edf3;
+$secondery_color:#0d1117;
+$background_color:#0d1117;
+$surface_color:#161b22;
+$accent_color:#58a6ff;
+$text_muted:#8b949e;
 
 
 $font: 'Poppins', sans-serif;
@@ -96,7 +99,7 @@ body {
 	font-family:$font;
 	font-size: 14px;
 	font-style: normal;
-	line-height:1.5;
+	line-height:1.7;
 	overflow:hidden;
 }
 
@@ -159,8 +162,21 @@ h6 {
 	letter-spacing:1.5px;
 	font-weight:500;
 	text-transform:uppercase;
-	color:#e91e63;
-	margin-bottom:33px;
+	color:#58a6ff;
+	margin-bottom:28px;
+	padding-bottom:12px;
+	position:relative;
+	&:after {
+		content:'';
+		display:block;
+		width:30px;
+		height:2px;
+		background: linear-gradient(to right, #58a6ff, rgba(88,166,255,0.2));
+		position:absolute;
+		bottom:0;
+		left:0;
+		border-radius:1px;
+	}
 }
 p{
 	font-size:16px;
@@ -309,7 +325,7 @@ p{
 	z-index: -1;
 	width: 100%;
 	height: 5px;
-	background: #141414;
+	background: #0d1117;
 	-webkit-transform: translate3d(-100%, 0, 0);
 	transform: translate3d(-100%, 0, 0);
 	pointer-events: none;
@@ -321,7 +337,7 @@ p{
 	right: 0;
 	width: 100px;
 	height: 100%;
-	background: #141414;
+	background: #0d1117;
 	content: '';
 	opacity: 0;
 	-webkit-transition: opacity 0.2s, box-shadow 2s 4s;
@@ -433,7 +449,7 @@ p{
 	-webkit-backface-visibility:hidden;
 }
 .fixed-bg-overlay {
-	background: rgba(255, 255,255,0);
+	background: linear-gradient(135deg, rgba(13,17,23,0.75) 0%, rgba(13,17,23,0.55) 100%);
     height: 100%;
     width: 100%;
 	z-index:-1;
@@ -452,7 +468,7 @@ p{
 	.person-img {
 		height:150px;
 		width:150px;
-		background:url(../img/candidate.png);
+		background:url(../img/saul.jpg);
 		border-radius:50%;
 		background-repeat:no-repeat;
 		background-size:cover;
@@ -492,7 +508,7 @@ p{
 	}
 	
 		.mask {
-			background:#e91e63;
+			background:#58a6ff;
 			border-radius:2px;
 			display: block;
 			height: 100%;
@@ -557,7 +573,7 @@ header {
 				color:$primery_font_color;
 				background:$secondery_color;
 				.mask {
-					background:#e91e63;
+					background:#58a6ff;
 				}
 				
 				&:hover,&:focus,&:active {
@@ -676,7 +692,7 @@ a.goto-social,a.goto-social:hover {
 }
 .separater-hr {
 	margin:0;
-	border-color:#454648;
+	border-color:rgba(88,166,255,0.12);
 }
 
 /********Services Sec CSS********/
@@ -732,7 +748,7 @@ a.goto-social,a.goto-social:hover {
 				}
 		}
 		span { 
-				background-color: #e91e63;
+				background-color: #58a6ff;
 				height: 3px;
 				width: 0px;
 				display: block;
@@ -740,7 +756,7 @@ a.goto-social,a.goto-social:hover {
 				position:relative;
 				overflow:visible!important;
 				&:after {
-					border: 3px solid #e91e63;
+					border: 3px solid #58a6ff;
 					border-radius: 50%;
 					content: "";
 					height: 15px;
@@ -789,9 +805,12 @@ a.goto-social,a.goto-social:hover {
 			letter-spacing: 0.5px;
 			text-transform: uppercase;
 			font-weight: 500;
-			background: #fff none repeat scroll 0 0;
+			background: rgba(13,17,23,0.88);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			border-top: 1px solid rgba(88,166,255,0.25);
 			bottom: 0;
-			color: black;
+			color: #58a6ff;
 			height: 65px;
 			padding-top: 25px;
 			left: 0;
@@ -801,7 +820,6 @@ a.goto-social,a.goto-social:hover {
 			text-align: center;
 			border-bottom-right-radius:5px;
 			border-bottom-left-radius:5px;
-			text-transform: uppercase;
 			@include transform(translateY(75px));
 			@include transition(all 0.4s ease 0s);
 			width: 100%;
@@ -917,13 +935,13 @@ a.goto-social,a.goto-social:hover {
 	}
 	
 	.timeline-st {
-		background: rgba(255,255,255, 0.15);
+		background: linear-gradient(to bottom, rgba(88,166,255,0.6), rgba(88,166,255,0.05));
 		margin-left: 7px;
 		margin-top: 15px;
 		width: 1px;
-		
+
 		&:after {
-			border: 3px solid rgba(255,255,255, 0.15);
+			border: 3px solid rgba(88,166,255,0.3);
 			border-radius: 50%;
 			content: "";
 			height: 15px;
@@ -953,7 +971,7 @@ a.goto-social,a.goto-social:hover {
 		&.timeline-active {
 			.timeline-st {
 				&:after {
-					border: 3px solid #e91e63;
+					border: 3px solid #58a6ff;
 				}
 			}
 		}
@@ -1077,7 +1095,7 @@ a.goto-social,a.goto-social:hover {
         color:#fff !important;
 	}
 		.mask {
-			background-color:#e91e63;
+			background-color:#58a6ff;
 		}
 	}
 	.email-direct {
@@ -1095,7 +1113,7 @@ a.goto-social,a.goto-social:hover {
     background: none;
 }
 .bg-success{
-    color: #e91e63;
+    color: #58a6ff;
 }	
 
 }
@@ -1163,7 +1181,7 @@ footer {
 			float:left;
 		}
 		.available-pointer {
-			background: #e91e63 none repeat scroll 0 0;
+			background: #58a6ff none repeat scroll 0 0;
 			position: relative;
 			display: inline-block;
 			float:left;
@@ -1182,7 +1200,7 @@ footer {
 			animation-iteration-count: infinite;
 			content: ' ';
 			&:before{
-				background-color: #e91e63;
+				background-color: #58a6ff;
 				content: ' ';
 				position: absolute;
 				top: -8px;
@@ -1292,6 +1310,171 @@ footer {
 	}
 }
 
+/* =============================
+   Modern Component Styles
+   ============================= */
+
+/* Open to Work Badge */
+.open-to-work-badge {
+	display:inline-flex;
+	align-items:center;
+	gap:8px;
+	background:rgba(63,185,80,0.1);
+	border:1px solid rgba(63,185,80,0.35);
+	border-radius:999px;
+	padding:5px 16px;
+	margin-bottom:28px;
+	.badge-dot {
+		width:8px;
+		height:8px;
+		background:#3fb950;
+		border-radius:50%;
+		flex-shrink:0;
+		animation:pulse-green 2s infinite;
+	}
+	.badge-label {
+		font-size:11px;
+		font-weight:600;
+		color:#3fb950;
+		letter-spacing:1px;
+		text-transform:uppercase;
+		font-family:$font;
+	}
+}
+@keyframes pulse-green {
+	0%   { box-shadow:0 0 0 0 rgba(63,185,80,0.6); }
+	70%  { box-shadow:0 0 0 8px rgba(63,185,80,0); }
+	100% { box-shadow:0 0 0 0 rgba(63,185,80,0); }
+}
+
+/* Skill Pills */
+.skill-pills-section {
+	margin-top:36px;
+}
+.skill-pill-category {
+	margin-bottom:28px;
+}
+.skill-category-label {
+	font-size:11px;
+	font-weight:600;
+	letter-spacing:1.5px;
+	text-transform:uppercase;
+	color:#8b949e;
+	display:block;
+	margin-bottom:10px;
+	font-family:$font;
+}
+.skill-pills {
+	display:flex;
+	flex-wrap:wrap;
+	gap:8px;
+}
+.skill-pill {
+	display:inline-block;
+	padding:5px 14px;
+	border-radius:999px;
+	font-size:12px;
+	font-weight:500;
+	font-family:$secondery_font;
+	color:#58a6ff;
+	border:1px solid rgba(88,166,255,0.28);
+	background:rgba(88,166,255,0.07);
+	letter-spacing:0.3px;
+	@include transition(all 0.25s ease 0s);
+	cursor:default;
+	&:hover {
+		background:rgba(88,166,255,0.16);
+		border-color:rgba(88,166,255,0.55);
+		@include transform(translateY(-2px));
+		box-shadow:0 4px 12px rgba(88,166,255,0.18);
+	}
+}
+
+/* Portfolio card tech tags */
+.card-tech-tags {
+	display:flex;
+	flex-wrap:wrap;
+	gap:5px;
+	padding:8px 10px;
+	background:rgba(13,17,23,0.7);
+	border-top:1px solid rgba(88,166,255,0.12);
+	.tech-tag {
+		font-size:10px;
+		font-weight:600;
+		letter-spacing:0.3px;
+		color:#58a6ff;
+		background:rgba(88,166,255,0.1);
+		border-radius:4px;
+		padding:2px 8px;
+		font-family:$secondery_font;
+	}
+}
+
+/* Certifications cards */
+.cert-cards-wrap {
+	display:flex;
+	flex-wrap:wrap;
+	gap:14px;
+	margin-top:32px;
+}
+.cert-card {
+	background:rgba(88,166,255,0.06);
+	border:1px solid rgba(88,166,255,0.18);
+	border-radius:8px;
+	padding:14px 18px;
+	flex:0 0 calc(50% - 7px);
+	@include transition(all 0.25s ease 0s);
+	&:hover {
+		background:rgba(88,166,255,0.12);
+		border-color:rgba(88,166,255,0.4);
+		@include transform(translateY(-2px));
+	}
+	.cert-title {
+		font-size:13px;
+		font-weight:600;
+		color:#e6edf3;
+		font-family:$font;
+		display:block;
+		margin-bottom:4px;
+	}
+	.cert-provider {
+		font-size:11px;
+		color:#8b949e;
+		font-family:$secondery_font;
+		text-transform:uppercase;
+		letter-spacing:0.5px;
+	}
+	a {
+		text-decoration:none;
+		color:inherit;
+	}
+}
+
+/* Hero name gradient text */
+.hero-name-gradient {
+	background: linear-gradient(90deg, #e6edf3 60%, #58a6ff 100%);
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	background-clip:text;
+	display:inline;
+}
+
+/* View Work CTA button (ghost style) */
+.btn-ghost {
+	background:transparent !important;
+	border:1px solid rgba(88,166,255,0.4) !important;
+	color:#58a6ff !important;
+	margin-left:10px;
+	&:hover,&:focus,&:active {
+		background:rgba(88,166,255,0.1) !important;
+		border-color:rgba(88,166,255,0.7) !important;
+		color:#58a6ff !important;
+	}
+	.mask {
+		background:rgba(88,166,255,0.12) !important;
+	}
+}
+
 /****************************/
 /** Mediaqueries **/
 /****************************/
@@ -1349,14 +1532,14 @@ footer {
 				}
 				&:hover {
 					span {
-						color: #e91e63;
+						color: #58a6ff;
 					}	
 				}
 			}
 			&.active {
 				a{
 					span {
-						color:#e91e63;
+						color:#58a6ff;
 					}
 				}
 			}
@@ -1448,7 +1631,7 @@ footer {
 				color:$primery_font_color;
 				background:#fff;
 				.mask {
-					background:#e91e63;
+					background:#58a6ff;
 				}
 				&:hover {
 					color:$secondery_color;

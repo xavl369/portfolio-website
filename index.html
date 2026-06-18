@@ -17,6 +17,7 @@
 		
 		<!--CSS-->
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 	</head>
 	<body id="body" data-ng-app="contactApp">
 		
@@ -58,6 +59,7 @@
 							   <!-- <li><a data-scroll href="#client_sec"></a><span>clients</span></li> -->
 								<li><a data-scroll href="#achivement_sec"></a><span>courses</span></li>
 								<li><a data-scroll href="#contact_sec"></a><span>contact</span></li>
+								<li><a data-scroll href="#location_sec"></a><span>location</span></li>
 							</ul>
 						</div>
 					</nav>
@@ -714,7 +716,17 @@
 						<!--Contact Sec-->
 						
 						<hr class="separater-hr"/>
-						
+
+						<!--Location Sec-->
+						<section id="location_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div location-wrap sec-pad">
+							<h6>location</h6>
+							<p class="wow fadeInUp" data-wow-duration=".4s">Based in Hermosillo, Sonora, México — available for remote work worldwide.</p>
+							<div id="location-map" class="wow fadeInUp" data-wow-duration=".6s"></div>
+						</section>
+						<!--/Location Sec-->
+
+						<hr class="separater-hr"/>
+
 						<!--Footer-->
 						<footer class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap  sec-pad">
 							<div class="row">
@@ -799,6 +811,8 @@
 		<script src="js/wow.min.js"></script>
 		<script src="https://d3js.org/d3.v7.min.js"></script>
 		<script src="js/exp-timeline.js"></script>
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLs=" crossorigin=""></script>
+		<script src="js/location-map.js"></script>
 		<script src="js/init.js"></script>
 	</body>
 </html>

@@ -4,7 +4,7 @@
   $(document).ready(function () {
     var map = L.map("location-map", {
       center: [29.0729, -110.9559],
-      zoom: 12,
+      zoom: 5,
       scrollWheelZoom: false,
       zoomControl: true,
     });

@@ -1819,3 +1819,62 @@ footer {
 		}
 	}
 }
+
+/* ============================================================
+   Location Map (Leaflet.js)
+   ============================================================ */
+#location-map {
+	height: 380px;
+	border-radius: 8px;
+	border: 1px solid #21262d;
+	margin-top: 1.5rem;
+	overflow: hidden;
+}
+
+.location-marker-pin {
+	width: 16px;
+	height: 16px;
+	background: $accent_color;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	position: relative;
+	z-index: 1;
+}
+
+.location-marker-pulse {
+	width: 36px;
+	height: 36px;
+	background: rgba(88, 166, 255, 0.25);
+	border-radius: 50%;
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+	0%   { transform: scale(0.5); opacity: 1; }
+	100% { transform: scale(1.5); opacity: 0; }
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: #161b22 !important;
+	color: $primery_font_color !important;
+	border: 1px solid #30363d;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-close-button {
+	color: #8b949e !important;
+}
+
+.leaflet-control-zoom a {
+	background: #161b22 !important;
+	color: $primery_font_color !important;
+	border-color: #30363d !important;
+
+	&:hover {
+		background: #21262d !important;
+	}
+}

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abraham Saul Sandoval — Full-Stack & AI Developer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:      #0f1117;
+    --slate:    #3b4252;
+    --mid:      #6b7280;
+    --rule:     #e5e7eb;
+    --page:     #ffffff;
+    --accent:   #1d4ed8;   /* deep tech blue */
+    --accent2:  #0ea5e9;   /* sky highlight */
+    --chip-bg:  #eff6ff;
+    --chip-txt: #1d4ed8;
+    --sidebar:  #0f172a;   /* near-black sidebar */
+    --sidebar2: #1e293b;
+    --s-text:   #cbd5e1;
+    --s-mid:    #64748b;
+    --s-accent: #38bdf8;
+  }
+
+  html { font-size: 13px; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f1f5f9;
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 100vh;
+    max-width: 900px;
+    margin: 32px auto;
+    background: var(--page);
+    box-shadow: 0 4px 40px rgba(0,0,0,.14);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--sidebar);
+    color: var(--s-text);
+    padding: 36px 20px 36px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .avatar-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  .avatar {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--s-accent);
+    object-fit: cover;
+    background: var(--sidebar2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; font-weight: 700; color: var(--s-accent);
+    letter-spacing: -1px;
+  }
+
+  .s-section { display: flex; flex-direction: column; gap: 10px; }
+
+  .s-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--s-accent);
+    padding-bottom: 6px;
+    border-bottom: 1px solid #1e3a5f;
+  }
+
+  .s-contact-row {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 11px; color: var(--s-text); line-height: 1.4;
+  }
+  .s-contact-row .icon { font-size: 12px; flex-shrink: 0; margin-top: 1px; color: var(--s-accent); }
+  .s-contact-row a { color: var(--s-text); text-decoration: none; }
+  .s-contact-row a:hover { color: var(--s-accent); }
+
+  /* skill chips in sidebar */
+  .skill-group { display: flex; flex-direction: column; gap: 4px; }
+  .skill-name { font-size: 11.5px; color: var(--s-text); font-weight: 500; }
+  .skill-bar { height: 3px; background: #1e3a5f; border-radius: 2px; }
+  .skill-bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--s-accent), #60a5fa); }
+
+  /* languages */
+  .lang-row { display: flex; justify-content: space-between; align-items: center; }
+  .lang-name { font-size: 12px; color: var(--s-text); font-weight: 500; }
+  .lang-dots { display: flex; gap: 4px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.filled { background: var(--s-accent); }
+  .dot.empty  { background: #1e3a5f; }
+
+  /* education sidebar */
+  .edu-item { font-size: 11.5px; line-height: 1.5; }
+  .edu-deg { font-weight: 600; color: var(--s-text); }
+  .edu-school { color: var(--s-mid); }
+  .edu-field { color: var(--s-accent); font-size: 10.5px; font-style: italic; }
+
+  /* ── MAIN ── */
+  .main {
+    padding: 36px 36px 40px 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  /* name / title hero */
+  .hero { border-bottom: 2px solid var(--accent); padding-bottom: 18px; }
+  .hero-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -.5px;
+    line-height: 1.1;
+  }
+  .hero-title {
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: .03em;
+  }
+  .hero-summary {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--slate);
+    line-height: 1.65;
+    max-width: 540px;
+  }
+
+  /* section header */
+  .section { display: flex; flex-direction: column; gap: 14px; }
+  .section-head {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* experience cards */
+  .exp-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px 12px;
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    position: relative;
+    transition: box-shadow .15s;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px; bottom: 12px;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    border-radius: 0 2px 2px 0;
+  }
+  .exp-card:hover { box-shadow: 0 2px 12px rgba(29,78,216,.10); }
+
+  .exp-company {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    grid-column: 1;
+  }
+  .exp-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: var(--chip-bg);
+    color: var(--chip-txt);
+    white-space: nowrap;
+    align-self: start;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .exp-badge.current { background: #dcfce7; color: #15803d; }
+  .exp-role {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    grid-column: 1;
+  }
+  .exp-period {
+    font-size: 10.5px;
+    color: var(--mid);
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    white-space: nowrap;
+    text-align: right;
+  }
+  .exp-desc {
+    font-size: 11.5px;
+    color: var(--slate);
+    line-height: 1.6;
+    grid-column: 1 / -1;
+    margin-top: 6px;
+  }
+  .exp-stack {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .tag {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: var(--slate);
+  }
+  .tag.hl { background: var(--chip-bg); border-color: #bfdbfe; color: var(--accent); }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; border-radius: 0; max-width: 100%; }
+    @page { margin: 0; size: letter; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar">
+
+    <div class="avatar-wrap">
+      <img class="avatar" src="data:image/jpeg;base64,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" alt="Abraham Saul Sandoval">
+    </div>
+
+    <!-- Contact -->
+    <div class="s-section">
+      <div class="s-label">Contact</div>
+      <div class="s-contact-row"><span class="icon">📞</span><span>6624 44 10 38</span></div>
+      <div class="s-contact-row"><span class="icon">✉️</span><a href="mailto:abrahams.sandovalm@gmail.com">abrahams.sandovalm<br>@gmail.com</a></div>
+      <div class="s-contact-row"><span class="icon">🐙</span><a href="https://github.com/xavl369" target="_blank">github.com/xavl369</a></div>
+      <div class="s-contact-row"><span class="icon">🌐</span><a href="https://xavl369.github.io/portfolio-website/" target="_blank">Portfolio Website</a></div>
+      <div class="s-contact-row"><span class="icon">📍</span><span>Hermosillo, Sonora, MX</span></div>
+    </div>
+
+    <!-- Core Skills -->
+    <div class="s-section">
+      <div class="s-label">Core Skills</div>
+      <div class="skill-group">
+        <div class="skill-name">C# / .NET Core</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:96%"></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-name">React / TypeScript</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:93%"></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-name">SQL / PostgreSQL</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-name">Python</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-name">Angular</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-name">AWS / Azure</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="s-section">
+      <div class="s-label">Tools &amp; Platforms</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px">
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">Docker</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">Git</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">AWS Bedrock</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">OpenAI</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">Twilio</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">SignalR</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">UIPath RPA</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">Dynamics 365</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">SAP B1</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">Azure DevOps</span>
+        <span style="background:#1e3a5f;color:var(--s-text);font-size:10px;padding:2px 7px;border-radius:3px">WebSocket</span>
+      </div>
+    </div>
+
+    <!-- AI Dev Tools -->
+    <div class="s-section">
+      <div class="s-label">AI-Assisted Dev</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px">
+        <span style="background:#162032;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid #1e3a5f">Claude Code</span>
+        <span style="background:#162032;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid #1e3a5f">Codex</span>
+        <span style="background:#162032;color:#38bdf8;font-size:10px;padding:2px 7px;border-radius:3px;border:1px solid #1e3a5f">GitHub Copilot</span>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="s-section">
+      <div class="s-label">Languages</div>
+      <div class="lang-row">
+        <span class="lang-name">Spanish</span>
+        <div class="lang-dots">
+          <div class="dot filled"></div><div class="dot filled"></div>
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+        </div>
+      </div>
+      <div class="lang-row">
+        <span class="lang-name">English</span>
+        <div class="lang-dots">
+          <div class="dot filled"></div><div class="dot filled"></div>
+          <div class="dot filled"></div><div class="dot filled"></div><div class="dot empty"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="s-section">
+      <div class="s-label">Education</div>
+      <div class="edu-item">
+        <div class="edu-deg">B.Sc. Computer Science</div>
+        <div class="edu-school">University of Sonora</div>
+        <div class="edu-field">Academic Discipline in AI</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-name">Abraham Saul Sandoval</div>
+      <div class="hero-title">Full-Stack Developer &amp; AI Integration Engineer</div>
+       <p class="hero-summary">
+        With 10+ years of experience across software development, machine learning, automation, systems integration and AI-powered applications.
+
+Proven track record of building applications from the ground up, integrating business platforms, and delivering solutions that improve operational efficiency and user experience.
+      </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-head">Experience</div>
+
+      <!-- PhoenixCare -->
+      <div class="exp-card">
+        <div class="exp-company">PhoenixCare</div>
+        <div class="exp-badge current">Current</div>
+        <div class="exp-role">Software Engineer — Remote · Part-time</div>
+        <div class="exp-period">Mar 2026 – Present</div>
+        <div class="exp-desc">
+          Healthcare communication platform enabling real-time patient engagement via voice interactions
+          and AI-assisted workflows. Contributed to system architecture and delivered full-stack features
+          including voice call workflows, speech-to-text pipelines, and LLM-powered conversation analysis.
+        </div>
+        <div class="exp-stack">
+          <span class="tag hl">AWS Bedrock</span><span class="tag hl">LLM / AI</span>
+          <span class="tag">TypeScript</span><span class="tag">React</span>
+          <span class="tag">Fastify</span><span class="tag">Lambda Serverless</span>
+          <span class="tag">PostgreSQL</span><span class="tag">DynamoDB</span>
+          <span class="tag">Twilio</span><span class="tag">WebSocket</span><span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <!-- Excelia -->
+      <div class="exp-card">
+        <div class="exp-company">Excelia — Grupo CARSO</div>
+        <div class="exp-badge">2 yrs</div>
+        <div class="exp-role">Full-Stack Developer Consultant — Remote</div>
+        <div class="exp-period">Apr 2024 – Apr 2026</div>
+        <div class="exp-desc">
+          Built SigOps from scratch — an enterprise project management system integrated with
+          Microsoft Dynamics 365. Led database design, clean-architecture guidance, and code reviews
+          to ensure quality across the team.
+        </div>
+        <div class="exp-stack">
+          <span class="tag hl">C#</span><span class="tag hl">.NET Core 9</span>
+          <span class="tag hl">React 18</span>
+          <span class="tag">TypeScript</span><span class="tag">SQL Server</span>
+          <span class="tag">Azure</span><span class="tag">Dynamics 365</span>
+          <span class="tag">Clean Architecture</span><span class="tag">Azure DevOps</span>
+        </div>
+      </div>
+
+      <!-- Trialshub -->
+      <div class="exp-card">
+        <div class="exp-company">Trialshub</div>
+        <div class="exp-badge">1 yr</div>
+        <div class="exp-role">Full-Stack Developer &amp; AI Engineer — Remote · Part-time</div>
+        <div class="exp-period">Feb 2024 – May 2025</div>
+        <div class="exp-desc">
+          Clinical trial recruitment platform with AI-assisted patient-trial matching and conversational search.
+          Built an embeddable React chatbot widget deployed across multiple external client sites, and developed
+          recruiter training simulations and voice communication workflows for a call center platform.
+        </div>
+        <div class="exp-stack">
+          <span class="tag hl">OpenAI API</span><span class="tag hl">LangChain</span>
+          <span class="tag hl">Next.js</span>
+          <span class="tag">React</span><span class="tag">TypeScript</span>
+          <span class="tag">Pinecone</span><span class="tag">Twilio</span>
+          <span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">AWS</span>
+        </div>
+      </div>
+
+      <!-- Pinnacle Aerospace / Genety -->
+      <div class="exp-card">
+        <div class="exp-company">Pinnacle Aerospace — Genety</div>
+        <div class="exp-badge">1 yr</div>
+        <div class="exp-role">Full-Stack Developer &amp; Mentor — Hybrid</div>
+        <div class="exp-period">Feb 2023 – Feb 2024</div>
+        <div class="exp-desc">
+          Requirements Management System for aerospace engineering. Delivered microservice features
+          and real-time collaboration via SignalR. Mentored junior developers and proposed bug-fix
+          strategies for QA issues.
+        </div>
+        <div class="exp-stack">
+          <span class="tag hl">C#</span><span class="tag hl">.NET Core 7</span>
+          <span class="tag hl">Angular 17</span>
+          <span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
+          <span class="tag">Azure</span><span class="tag">SignalR</span>
+          <span class="tag">Docker</span><span class="tag">ReqIF</span>
+        </div>
+      </div>
+
+      <!-- CampusCE -->
+      <div class="exp-card">
+        <div class="exp-company">Pinnacle Aerospace — CampusCE</div>
+        <div class="exp-badge">2 yrs</div>
+        <div class="exp-role">Full-Stack Developer — Remote</div>
+        <div class="exp-period">Nov 2020 – Feb 2023</div>
+        <div class="exp-desc">
+          Continuous Education platform serving students, instructors, and admins.
+          Implemented payment processor integrations, a recommender system, and task estimation workflows.
+        </div>
+        <div class="exp-stack">
+          <span class="tag hl">C#</span><span class="tag">Python</span>
+          <span class="tag">SQL Server</span><span class="tag">Azure</span>
+          <span class="tag">Multi-tenancy</span><span class="tag">Twilio</span>
+          <span class="tag">Recommender Systems</span><span class="tag">SSIS</span>
+        </div>
+      </div>
+
+      <!-- Intersel -->
+      <div class="exp-card">
+        <div class="exp-company">Intersel</div>
+        <div class="exp-badge">1 yr</div>
+        <div class="exp-role">Full-Stack &amp; ML Developer — Remote</div>
+        <div class="exp-period">Nov 2019 – Nov 2020</div>
+        <div class="exp-desc">
+          Omnichannel messaging platform. Developed NLP-powered smart virtual assistants and chatbot
+          integrations for web, social media, and messaging channels using Rasa and Dialogflow.
+        </div>
+        <div class="exp-stack">
+          <span class="tag hl">Python</span><span class="tag hl">NLP / ML</span>
+          <span class="tag">spaCy</span><span class="tag">TensorFlow</span>
+          <span class="tag">Rasa</span><span class="tag">C#</span>
+          <span class="tag">AWS</span><span class="tag">UIPath</span><span class="tag">SignalR</span>
+        </div>
+      </div>
+
+      <!-- Qualisys -->
+      <div class="exp-card">
+        <div class="exp-company">Qualisys</div>
+        <div class="exp-badge">2 yrs</div>
+        <div class="exp-role">Full-Stack &amp; SAP B1 Developer</div>
+        <div class="exp-period">Feb 2018 – Nov 2019</div>
+        <div class="exp-desc">
+          SAP Business One development and integrations including electronic billing, desktop software,
+          add-ons, and web portals with deep SAP B1 API connectivity.
+        </div>
+        <div class="exp-stack">
+          <span class="tag hl">C#</span><span class="tag hl">SAP B1</span>
+          <span class="tag">Angular</span><span class="tag">TypeScript</span>
+          <span class="tag">SQL Server</span><span class="tag">SAP HANA</span>
+          <span class="tag">UIPath</span><span class="tag">.NET Framework</span>
+        </div>
+      </div>
+
+      <!-- EDI Service -->
+      <div class="exp-card">
+        <div class="exp-company">EDI Service</div>
+        <div class="exp-badge">2 yrs</div>
+        <div class="exp-role">Full-Stack Developer — On-site</div>
+        <div class="exp-period">Jun 2016 – Feb 2018</div>
+        <div class="exp-desc">
+          EDI document parsing, configuration and generation for major retail partners (Amazon, BestBuy, Walmart).
+          Developed web portal features and Windows services for B2B integrations.
+        </div>
+        <div class="exp-stack">
+          <span class="tag hl">C#</span><span class="tag">.NET Framework</span>
+          <span class="tag">SQL Server</span><span class="tag">AngularJS</span><span class="tag">AWS</span>
+        </div>
+      </div>
+
+      <!-- NPC Group / GE Appliances -->
+      <div class="exp-card">
+        <div class="exp-company">NPC Group — GE Appliances</div>
+        <div class="exp-badge">1 yr</div>
+        <div class="exp-role">IT Leader — On-site</div>
+        <div class="exp-period">Apr 2015 – Jun 2016</div>
+        <div class="exp-desc">
+          Web and iOS development, Excel business automation with VBA macros, and sales estimation using regression models.
+        </div>
+        <div class="exp-stack">
+          <span class="tag">PHP</span><span class="tag">JavaScript</span>
+          <span class="tag">Objective-C</span><span class="tag">MySQL</span><span class="tag">VBA</span>
+        </div>
+      </div>
+
+      <!-- IENova / Sempra Energy 
+      <div class="exp-card">
+        <div class="exp-company">IENova — Sempra Energy</div>
+        <div class="exp-badge">Intern</div>
+        <div class="exp-role">Software Developer Intern — On-site</div>
+        <div class="exp-period">Oct 2014 – Apr 2015</div>
+        <div class="exp-desc">
+          Intranet and iOS app for Occupational Health &amp; Safety. Excel process automation with VBA.
+        </div>
+        <div class="exp-stack">
+          <span class="tag">JavaScript</span><span class="tag">HTML/CSS</span>
+          <span class="tag">Objective-C</span><span class="tag">VBA</span>
+        </div>
+      </div> -->
+
+    </div><!-- /experience -->
+
+  </main>
+</div>
+</body>
+</html>

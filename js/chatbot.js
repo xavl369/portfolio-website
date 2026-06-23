@@ -1,5 +1,5 @@
 (function () {
-  const OPENAI_API_KEY = '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';
+  const WORKER_URL = 'https://calm-term-a334.abrahams-sandovalm.workers.dev';
   const MODEL = 'gpt-4o-mini';
   const MAX_HISTORY_TURNS = 10;
 
@@ -192,11 +192,10 @@ Full-Stack Developer with 10+ years of experience in software development, machi
     showTypingIndicator();
 
     try {
-      var response = await fetch('https://api.openai.com/v1/chat/completions', {
+      var response = await fetch(WORKER_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + OPENAI_API_KEY
         },
         body: JSON.stringify({
           model: MODEL,

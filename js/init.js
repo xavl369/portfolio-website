@@ -125,7 +125,7 @@ var penelope = function() {
 	
 	/*Typed js start*/
 	$("#typed").typed({
-		strings: ["Full-Stack Developer.", " Systems Integration.", " AI-Powered Apps.", " Cloud Architecture."],
+		strings: ["Full-Stack Developer.", " Systems Integration.", " AI-Powered Apps."],
 		typeSpeed: 30,
 		backDelay: 750,
 		loop: false,

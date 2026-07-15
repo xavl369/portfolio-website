@@ -125,7 +125,7 @@ var penelope = function() {
 	
 	/*Typed js start*/
 	$("#typed").typed({
-		strings: ["Full-Stack Developer.", " Systems Integration.", " AI-Powered Apps.", " Cloud Architecture."],
+		strings: ["Full-Stack Developer.", " Systems Integration.", " AI-Powered Apps."],
 		typeSpeed: 30,
 		backDelay: 750,
 		loop: false,
@@ -135,38 +135,6 @@ var penelope = function() {
 		loopCount: false
 	});
 	/*Typed js end*/
-	
-	/*Client carousel start*/
-	$('#client_sec .client-carousel').owlCarousel({
-		loop: true,
-		margin: 15,
-		nav: false,
-		dots: false,
-		responsive: {
-			0: {
-				items: 1
-			},
-			200: {
-				items: 2
-			},
-			400: {
-				items: 3
-			},
-			600: {
-				items: 4
-			},
-			1200: {
-				items: 3
-			},
-			1300: {
-				items: 4
-			},
-			1600: {
-				items: 5
-			}
-		}
-	});
-	/*Client carousel end*/
 	
 	/*Header animation start*/
 	var scroll = $(window).scrollTop();
@@ -540,10 +508,6 @@ $(document).on("ready",function() {
 	/*Preload anim end*/
 });
 /*****Ready function end*****/
-
-/***** Placehoder ie9 start*****/
-$('input[type=text], textarea').placeholder();
-/***** Placehoder ie9 end*****/
 
 /***** LightGallery init start*****/
 $('#portfolio').lightGallery({

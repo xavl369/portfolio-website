@@ -24,17 +24,8 @@ Project:	Eric
 /****************************/
 /** Imports **/
 /****************************/
-@import "animate.css";	
-@import "font-awesome.min.css";	
-@import "pe-icon-7-stroke.css";	
-@import "et-line-font.css";	
-@import "bootstrap.min.css";	
-@import "owl.carousel.css";	
-@import "owl.theme.default.min.css";	
-@import "inputtext.css";	
-@import "filter.css";	
-@import "default-skin/default-skin.css";	
-@import "lightgallery.css";
+/* Vendor stylesheets are linked directly from index.html (parallel,
+   non-chained requests) instead of being @import-ed here. */
 
 $primery_font_color:#e6edf3;
 $secondery_color:#0d1117;
@@ -436,7 +427,7 @@ p{
 
 /********Body Sec CSS********/
 .fixed-bg {
-	background: rgba(0, 0, 0, 0) url("../img/mainbg.jpg") no-repeat;
+	background: rgba(0, 0, 0, 0) url("../img/mainbg.webp") no-repeat;
 	image-rendering: optimizeQuality;
     height: 100%;
     width: 100%;

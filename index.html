@@ -12,14 +12,24 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		
+		<!--Preload first-paint background (referenced from CSS, discovered late otherwise)-->
+		<link rel="preload" as="image" href="img/mainbg.webp">
+
 		<!--Fonts-->
-		<link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Hind:400,500,300,600' rel='stylesheet' type='text/css'>
-		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600,700|Hind:400,500,600&display=swap' rel='stylesheet' type='text/css'>
+
 		<!--CSS-->
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/pe-icon-7-stroke.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/inputtext.css" />
+		<link rel="stylesheet" type="text/css" href="css/filter.css" />
+		<link rel="stylesheet" type="text/css" href="css/lightgallery.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 	</head>
-	<body id="body" data-ng-app="contactApp">
+	<body id="body">
 		
 		<!--Fixed Bg Image-->
 		<div class="fixed-bg"></div>
@@ -243,7 +253,7 @@
 							<div class="qualfication-wrap">
 								<div class="qualfication wow fadeInUp" data-wow-duration=".4s">
 									<div class="col-sm-2">
-										<img src="img/logo_unison_sin_tit.png" alt="Universidad de Sonora" style="height:38px;opacity:0.85;vertical-align:middle;">
+										<img src="img/logo_unison_sin_tit.png" alt="Universidad de Sonora" loading="lazy" decoding="async" style="height:38px;opacity:0.85;vertical-align:middle;">
 									</div>
 									<div class="col-sm-5">
 										<span class="yr-pers vertical-align-pad">University of Sonora</span>
@@ -254,7 +264,7 @@
 								</div>
 								<div class="qualfication wow fadeInUp" data-wow-duration=".4s">
 									<div class="col-sm-2">
-										<img src="img/gob.png" alt="Gobierno de México" style="height:38px;opacity:0.85;vertical-align:middle;">
+										<img src="img/gob.png" alt="Gobierno de México" loading="lazy" decoding="async" style="height:38px;opacity:0.85;vertical-align:middle;">
 									</div>
 									<div class="col-sm-5">
 										<span class="yr-pers vertical-align-pad">Cédula Profesional</span>
@@ -288,7 +298,6 @@
 						<!--Experience Sec-->
 						<section id="exp_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div experience-wrap  sec-pad">
 							<h6>experience</h6>
-							<div id="exp-chart"></div>
 							<div class="exp-timeline-wrap">
 								<div class="row exp-timeline timeline-active">
 									<div class="col-xs-2">
@@ -500,9 +509,9 @@
 										<h6>Some Projects</h6>
 										<div  class="portfolio-wrap project-gallery padding-sec-lg">
 											<ul id="portfolio" class="portf auto-construct  project-gallery" data-col="2">
-												<li class="item" data-src="img/campusce2.png" data-sub-html="<h6>CAMPUSCE - CONTINUOUS EDUCATION PLATFORM</h6><p>Multi-tenant continuous education software supporting all types of academic programs. Includes student, instructor and admin portals with payment processor integrations for course registrations. Stack: C#, Python, .NET, SQL Server, SSIS, Twilio, Azure.</p>">
+												<li class="item" data-src="img/campusce2.webp" data-sub-html="<h6>CAMPUSCE - CONTINUOUS EDUCATION PLATFORM</h6><p>Multi-tenant continuous education software supporting all types of academic programs. Includes student, instructor and admin portals with payment processor integrations for course registrations. Stack: C#, Python, .NET, SQL Server, SSIS, Twilio, Azure.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/campusce.png" alt="CampusCE" />
+													<img class="img-responsive" src="img/campusce.webp" alt="CampusCE" loading="lazy" decoding="async" />
 													<span class="hover-cap">CAMPUSCE</span>
 													</a>
 													<div class="card-tech-tags">
@@ -515,9 +524,9 @@
 														<span class="tech-tag">Web Forms</span>
 													</div>
 												</li>
-												<li class="item" data-src="img/sigops2.png" data-sub-html="<h6>SIGOPS - SISTEMA INTEGRAL PARA OBRAS Y PROYECTOS DE GRUPO CARSO</h6><p>Comprehensive system for managing works and projects with integration to Microsoft Dynamics 365. Stack: C#, TypeScript, .NET Core 9, React 18, SQL Server, Azure DevOps.</p>">
+												<li class="item" data-src="img/sigops2.webp" data-sub-html="<h6>SIGOPS - SISTEMA INTEGRAL PARA OBRAS Y PROYECTOS DE GRUPO CARSO</h6><p>Comprehensive system for managing works and projects with integration to Microsoft Dynamics 365. Stack: C#, TypeScript, .NET Core 9, React 18, SQL Server, Azure DevOps.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/sigops1.png" alt="SigOps" />
+													<img class="img-responsive" src="img/sigops1.webp" alt="SigOps" loading="lazy" decoding="async" />
 													<span class="hover-cap">SIGOPS - GRUPO CARSO</span>
 													</a>
 													<div class="card-tech-tags">
@@ -529,9 +538,9 @@
 														<span class="tech-tag">Azure DevOps</span>
 													</div>
 												</li>
-												<li class="item" data-src="img/chatbot2.png" data-sub-html="<h6>VIRTUAL AI ASSISTANT</h6><p>Level 3 conversational virtual assistant integrated with Zendesk, Salesforce and the CONVERSA omnichannel platform. Supports human agent handoff. Stack: Python, C#, spaCy, TensorFlow, Rasa, AWS, UiPath.</p>">
+												<li class="item" data-src="img/chatbot2.webp" data-sub-html="<h6>VIRTUAL AI ASSISTANT</h6><p>Level 3 conversational virtual assistant integrated with Zendesk, Salesforce and the CONVERSA omnichannel platform. Supports human agent handoff. Stack: Python, C#, spaCy, TensorFlow, Rasa, AWS, UiPath.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/chatbot1.png"  alt="Chatbot" />
+													<img class="img-responsive" src="img/chatbot1.webp" alt="Chatbot" loading="lazy" decoding="async" />
 													<span class="hover-cap">VIRTUAL AI ASSISTANT</span>
 													</a>
 													<div class="card-tech-tags">
@@ -542,9 +551,9 @@
 														<span class="tech-tag">AWS</span>
 													</div>
 												</li>
-												<li class="item" data-src="img/requisitions2.png" data-sub-html="<h6>REQUISITIONS PORTAL</h6><p>Requisitions Portal with integration to SAP Business One. Stack: C#, Angular, Angular Material, SAP B1if, SQL Server, RDLC.</p>">
+												<li class="item" data-src="img/requisitions2.webp" data-sub-html="<h6>REQUISITIONS PORTAL</h6><p>Requisitions Portal with integration to SAP Business One. Stack: C#, Angular, Angular Material, SAP B1if, SQL Server, RDLC.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/requisitions1.png"  alt="Requisitions Portal" />
+													<img class="img-responsive" src="img/requisitions1.webp" alt="Requisitions Portal" loading="lazy" decoding="async" />
 													<span class="hover-cap">REQUISITIONS PORTAL</span>
 													</a>
 													<div class="card-tech-tags">
@@ -555,9 +564,9 @@
 														<span class="tech-tag">.NET Core</span>
 													</div>
 												</li>
-												<li class="item" data-src="img/aselec2.png" data-sub-html="<h6>STOCK OPERATIONS PORTAL</h6><p>Portal for inventory stock operations integrated to SAP Business One via SAP B1 integration framework. Stack: C#, AngularJS, Material Design, SQL Server, SAP B1if.</p>">
+												<li class="item" data-src="img/aselec2.webp" data-sub-html="<h6>STOCK OPERATIONS PORTAL</h6><p>Portal for inventory stock operations integrated to SAP Business One via SAP B1 integration framework. Stack: C#, AngularJS, Material Design, SQL Server, SAP B1if.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/aselec1.png"  alt="Stock Operations Portal" />
+													<img class="img-responsive" src="img/aselec1.webp" alt="Stock Operations Portal" loading="lazy" decoding="async" />
 													<span class="hover-cap">STOCK OPERATIONS PORTAL</span>
 													</a>
 													<div class="card-tech-tags">
@@ -568,9 +577,9 @@
 														<span class="tech-tag">.NET Framework</span>
 													</div>
 												</li>
-												<li class="item" data-src="img/hours2.png" data-sub-html="<h6>WORKING HOURS PORTAL</h6><p>Manages time employees invest across different projects, with RDLC reporting. Stack: C#, AngularJS, REST, SQL Server.</p>">
+												<li class="item" data-src="img/hours2.webp" data-sub-html="<h6>WORKING HOURS PORTAL</h6><p>Manages time employees invest across different projects, with RDLC reporting. Stack: C#, AngularJS, REST, SQL Server.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/hours1.png"  alt="Working Hours Portal" />
+													<img class="img-responsive" src="img/hours1.webp" alt="Working Hours Portal" loading="lazy" decoding="async" />
 													<span class="hover-cap">WORKING HOURS PORTAL</span>
 													</a>
 													<div class="card-tech-tags">
@@ -580,9 +589,9 @@
 														<span class="tech-tag">.NET Framework</span>
 													</div>
 												</li>
-												<li class="item" data-src="img/procore2.png" data-sub-html="<h6>INTEGRATION PROCORE - SAP BUSINESS ONE</h6><p>Integration of Procore (project management) with SAP Business One via SDK and REST APIs. Stack: C#, SAP B1 SDK .NET, REST, SQL Server.</p>">
+												<li class="item" data-src="img/procore2.webp" data-sub-html="<h6>INTEGRATION PROCORE - SAP BUSINESS ONE</h6><p>Integration of Procore (project management) with SAP Business One via SDK and REST APIs. Stack: C#, SAP B1 SDK .NET, REST, SQL Server.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/procore1.png"  alt="Procore SAP Integration" />
+													<img class="img-responsive" src="img/procore1.webp" alt="Procore SAP Integration" loading="lazy" decoding="async" />
 													<span class="hover-cap">PROCORE — SAP BUSINESS ONE</span>
 													</a>
 													<div class="card-tech-tags">
@@ -593,9 +602,9 @@
 														<span class="tech-tag">.NET Framework</span>
 													</div>
 												</li>
-												<li class="item" data-src="img/bitrix2.png" data-sub-html="<h6>INTEGRATION BITRIX24 - SAP BUSINESS ONE</h6><p>Integration of Bitrix24 CRM with SAP Business One via SDK and REST APIs. Stack: C#, SAP B1 SDK .NET, REST, SQL Server.</p>">
+												<li class="item" data-src="img/bitrix2.webp" data-sub-html="<h6>INTEGRATION BITRIX24 - SAP BUSINESS ONE</h6><p>Integration of Bitrix24 CRM with SAP Business One via SDK and REST APIs. Stack: C#, SAP B1 SDK .NET, REST, SQL Server.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/bitrix1.png"  alt="Bitrix24 SAP Integration" />
+													<img class="img-responsive" src="img/bitrix1.webp" alt="Bitrix24 SAP Integration" loading="lazy" decoding="async" />
 													<span class="hover-cap">BITRIX24 — SAP BUSINESS ONE</span>
 													</a>
 													<div class="card-tech-tags">
@@ -701,38 +710,38 @@
 						<!--Contact Sec-->
 						<section id="contact_sec"  class="col-lg-10 col-md-11 col-sm-11 center-div contact-wrap sec-pad">
 							<h6>contact</h6>
-							<div data-ng-controller="ContactController" class="align-center wow fadeInUp" data-wow-duration=".4s">
-								<h3><span  data-ng-bind="formData.inputName||' '"></span>Let's work together.</h3>
+							<div class="align-center wow fadeInUp" data-wow-duration=".4s">
+								<h3><span id="contact_name_preview"> </span>Let's work together.</h3>
 								<div>
-									<form data-ng-submit="submit(contactform, $event)"  name="contactform"  method="post" class="row form-horizontal" role="form">
-										<div class="form-group input--hoshi col-sm-6" data-ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
+									<form id="contactform" name="contactform" method="post" class="row form-horizontal" role="form">
+										<div class="form-group input--hoshi col-sm-6">
 											<div class="input-wrap">
-												<input autocomplete="off" data-ng-model="formData.inputName" type="text" class="form-control input__field input input__field--hoshi" id="inputName" name="inputName" placeholder="Name" required>
+												<input autocomplete="off" type="text" class="form-control input__field input input__field--hoshi" id="inputName" name="inputName" placeholder="Name" required>
 												<label class="input__label input__label input__label--hoshi input__label--hoshi-color-1 input__label--hoshi input__label--hoshi-color-1" ></label>
 											</div>
 										</div>
-										<div class="form-group  input--hoshi col-sm-6" data-ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
+										<div class="form-group  input--hoshi col-sm-6">
 											<div class="input-wrap">
-												<input autocomplete="off" data-ng-model="formData.inputEmail" type="email" class="form-control input input__field input__field--hoshi" placeholder="Email" id="inputEmail" name="inputEmail" required>
+												<input autocomplete="off" type="email" class="form-control input input__field input__field--hoshi" placeholder="Email" id="inputEmail" name="inputEmail" required>
 												<label class="input__label input__label--hoshi input__label--hoshi-color-1"></label>
 											</div>
 										</div>
-										<div class="form-group  input--hoshi col-sm-12" data-ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
+										<div class="form-group  input--hoshi col-sm-12">
 											<div class="input-wrap">
-												<textarea data-ng-model="formData.inputMessage" class="form-control input input__field input__field--hoshi" rows="4" id="inputMessage" name="inputMessage" placeholder="message" required></textarea>
+												<textarea class="form-control input input__field input__field--hoshi" rows="4" id="inputMessage" name="inputMessage" placeholder="message" required></textarea>
 												<label class="input__label input__label--hoshi input__label--hoshi-color-1"></label>
 											</div>
 										</div>
 										<div class="form-group col-sm-12">
 											<div class="align-center">
-												<button type="submit" class="btn btn-default" data-ng-disabled="submitButtonDisabled">
+												<button type="submit" class="btn btn-default">
 												<span class="mask"></span>
 												<span>send message</span>
 												</button>
 											</div>
 										</div>
 									</form>
-									<p data-ng-class="result">{{ resultMessage }}</p>
+									<p id="form_result" class="hidden"></p>
 								</div>
 							</div>
 							<div class="email-direct">
@@ -826,7 +835,8 @@
 				<button class="titulo-modal-close" id="titulo-close">&times;</button>
 				<h6 class="titulo-modal-heading">Título Universitario</h6>
 				<div class="titulo-modal-body">
-					<img src="img/titulo.jpg" alt="Título — Bachelor of Computer Science, Universidad de Sonora" class="titulo-img" />
+					<img src="img/titulo.webp" alt="Título — Bachelor of Computer Science, Universidad de Sonora" class="titulo-img" loading="lazy" decoding="async" />
+					<p style="margin-top:10px;text-align:center;"><a href="docs/titulo.pdf" target="_blank" style="color:inherit;text-decoration:underline;">Ver PDF completo</a></p>
 				</div>
 			</div>
 		</div>
@@ -834,25 +844,13 @@
 
 		<!-- Scripts -->
 		<script src="js/jquery-1.12.4.min.js"></script>
-		<script src="js/angular.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script src="js/modernizr.custom.js"></script>
-		<script src="js/app.js"></script>
-		<script src="js/controllers.js"></script>
-		<script src="js/jquery.placeholder.js"></script>
+		<script src="js/contact-form.js"></script>
 		<script src="js/smooth-scroll.js"></script>
-		<script src="js/countTo.js"></script>
-		<script src="js/jQuery.appear.js"></script>
 		<script src="js/isotope.js"></script>
 		<script src="js/typed.js"></script>
 		<script src="js/lightgallery-all.js"></script>
 		<script src="js/jquery.mousewheel.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/froogaloop2.min.js"></script>
-		<script src="js/wow.min.js"></script>
-		<script src="https://d3js.org/d3.v7.min.js"></script>
-		<script src="js/exp-timeline.js"></script>
-		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" ></script>
 		<script src="js/location-map.js"></script>
 		<script src="js/init.js"></script>
 		<script>

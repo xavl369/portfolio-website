@@ -12,8 +12,9 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		
-		<!--Preload first-paint background (referenced from CSS, discovered late otherwise)-->
-		<link rel="preload" as="image" href="img/mainbg.webp">
+		<!--Preload first-paint background (referenced from CSS, discovered late otherwise).
+			CSS hides .fixed-bg below 1200px, so only preload where it actually renders.-->
+		<link rel="preload" as="image" href="img/mainbg.webp" media="(min-width: 1200px)">
 
 		<!--Fonts-->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -511,7 +512,7 @@
 											<ul id="portfolio" class="portf auto-construct  project-gallery" data-col="2">
 												<li class="item" data-src="img/campusce2.webp" data-sub-html="<h6>CAMPUSCE - CONTINUOUS EDUCATION PLATFORM</h6><p>Multi-tenant continuous education software supporting all types of academic programs. Includes student, instructor and admin portals with payment processor integrations for course registrations. Stack: C#, Python, .NET, SQL Server, SSIS, Twilio, Azure.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/campusce.webp" alt="CampusCE" loading="lazy" decoding="async" />
+													<img class="img-responsive" src="img/campusce.webp" alt="CampusCE" width="900" height="441" loading="lazy" decoding="async" />
 													<span class="hover-cap">CAMPUSCE</span>
 													</a>
 													<div class="card-tech-tags">
@@ -526,7 +527,7 @@
 												</li>
 												<li class="item" data-src="img/sigops2.webp" data-sub-html="<h6>SIGOPS - SISTEMA INTEGRAL PARA OBRAS Y PROYECTOS DE GRUPO CARSO</h6><p>Comprehensive system for managing works and projects with integration to Microsoft Dynamics 365. Stack: C#, TypeScript, .NET Core 9, React 18, SQL Server, Azure DevOps.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/sigops1.webp" alt="SigOps" loading="lazy" decoding="async" />
+													<img class="img-responsive" src="img/sigops1.webp" alt="SigOps" width="900" height="445" loading="lazy" decoding="async" />
 													<span class="hover-cap">SIGOPS - GRUPO CARSO</span>
 													</a>
 													<div class="card-tech-tags">
@@ -540,7 +541,7 @@
 												</li>
 												<li class="item" data-src="img/chatbot2.webp" data-sub-html="<h6>VIRTUAL AI ASSISTANT</h6><p>Level 3 conversational virtual assistant integrated with Zendesk, Salesforce and the CONVERSA omnichannel platform. Supports human agent handoff. Stack: Python, C#, spaCy, TensorFlow, Rasa, AWS, UiPath.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/chatbot1.webp" alt="Chatbot" loading="lazy" decoding="async" />
+													<img class="img-responsive" src="img/chatbot1.webp" alt="Chatbot" width="900" height="456" loading="lazy" decoding="async" />
 													<span class="hover-cap">VIRTUAL AI ASSISTANT</span>
 													</a>
 													<div class="card-tech-tags">
@@ -553,7 +554,7 @@
 												</li>
 												<li class="item" data-src="img/requisitions2.webp" data-sub-html="<h6>REQUISITIONS PORTAL</h6><p>Requisitions Portal with integration to SAP Business One. Stack: C#, Angular, Angular Material, SAP B1if, SQL Server, RDLC.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/requisitions1.webp" alt="Requisitions Portal" loading="lazy" decoding="async" />
+													<img class="img-responsive" src="img/requisitions1.webp" alt="Requisitions Portal" width="900" height="453" loading="lazy" decoding="async" />
 													<span class="hover-cap">REQUISITIONS PORTAL</span>
 													</a>
 													<div class="card-tech-tags">
@@ -566,7 +567,7 @@
 												</li>
 												<li class="item" data-src="img/aselec2.webp" data-sub-html="<h6>STOCK OPERATIONS PORTAL</h6><p>Portal for inventory stock operations integrated to SAP Business One via SAP B1 integration framework. Stack: C#, AngularJS, Material Design, SQL Server, SAP B1if.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/aselec1.webp" alt="Stock Operations Portal" loading="lazy" decoding="async" />
+													<img class="img-responsive" src="img/aselec1.webp" alt="Stock Operations Portal" width="900" height="454" loading="lazy" decoding="async" />
 													<span class="hover-cap">STOCK OPERATIONS PORTAL</span>
 													</a>
 													<div class="card-tech-tags">
@@ -579,7 +580,7 @@
 												</li>
 												<li class="item" data-src="img/hours2.webp" data-sub-html="<h6>WORKING HOURS PORTAL</h6><p>Manages time employees invest across different projects, with RDLC reporting. Stack: C#, AngularJS, REST, SQL Server.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/hours1.webp" alt="Working Hours Portal" loading="lazy" decoding="async" />
+													<img class="img-responsive" src="img/hours1.webp" alt="Working Hours Portal" width="900" height="456" loading="lazy" decoding="async" />
 													<span class="hover-cap">WORKING HOURS PORTAL</span>
 													</a>
 													<div class="card-tech-tags">
@@ -591,7 +592,7 @@
 												</li>
 												<li class="item" data-src="img/procore2.webp" data-sub-html="<h6>INTEGRATION PROCORE - SAP BUSINESS ONE</h6><p>Integration of Procore (project management) with SAP Business One via SDK and REST APIs. Stack: C#, SAP B1 SDK .NET, REST, SQL Server.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/procore1.webp" alt="Procore SAP Integration" loading="lazy" decoding="async" />
+													<img class="img-responsive" src="img/procore1.webp" alt="Procore SAP Integration" width="900" height="455" loading="lazy" decoding="async" />
 													<span class="hover-cap">PROCORE — SAP BUSINESS ONE</span>
 													</a>
 													<div class="card-tech-tags">
@@ -604,7 +605,7 @@
 												</li>
 												<li class="item" data-src="img/bitrix2.webp" data-sub-html="<h6>INTEGRATION BITRIX24 - SAP BUSINESS ONE</h6><p>Integration of Bitrix24 CRM with SAP Business One via SDK and REST APIs. Stack: C#, SAP B1 SDK .NET, REST, SQL Server.</p>">
 													<a href="">
-													<img class="img-responsive" src="img/bitrix1.webp" alt="Bitrix24 SAP Integration" loading="lazy" decoding="async" />
+													<img class="img-responsive" src="img/bitrix1.webp" alt="Bitrix24 SAP Integration" width="900" height="464" loading="lazy" decoding="async" />
 													<span class="hover-cap">BITRIX24 — SAP BUSINESS ONE</span>
 													</a>
 													<div class="card-tech-tags">

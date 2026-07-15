@@ -26,7 +26,7 @@
 /*****Load function start*****/
 $(window).on("load",function(){
 	/*Page load animaion start*/
-	$("#pre_load").delay(500).fadeOut("slow");
+	$("#pre_load").fadeOut(200);
 	$("body").css('overflow-y', 'visible');
 	/*Page load animaion end*/
 	onResizePort();

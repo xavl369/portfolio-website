@@ -515,3 +515,12 @@ $('#portfolio').lightGallery({
 	hash: false
 });
 /***** LightGallery init end*****/
+
+/*Project "View Code" badges open GitHub directly instead of the lightbox.
+  lightGallery binds its click handler directly on each .item (the <li>),
+  which sits between the badge and #portfolio in the bubble path — so
+  delegating from #portfolio would fire too late. Binding straight on the
+  badge catches the event at the target phase, before it bubbles to the li.*/
+$('.project-github-badge').on('click', function(e) {
+	e.stopPropagation();
+});

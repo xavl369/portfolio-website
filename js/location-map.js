@@ -17,14 +17,20 @@
 			zoomControl: true,
 		});
 
+		// CARTO's free anonymous basemap tiles now require an API key, so we use
+		// Esri's free (no-key) Dark Gray Canvas basemap instead — base layer plus
+		// a transparent label reference layer on top, no key required.
+		var esriAttribution =
+			'&copy; <a href="https://www.esri.com">Esri</a> &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors, and the GIS User Community';
+
 		L.tileLayer(
-			"https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-			{
-				attribution:
-					'&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-				subdomains: "abcd",
-				maxZoom: 19,
-			}
+			"https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+			{ attribution: esriAttribution, maxZoom: 16 }
+		).addTo(map);
+
+		L.tileLayer(
+			"https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}",
+			{ maxZoom: 16 }
 		).addTo(map);
 
 		var icon = L.divIcon({

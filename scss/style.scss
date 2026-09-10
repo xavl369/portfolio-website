@@ -1919,6 +1919,7 @@ footer {
 	border: 1px solid #21262d;
 	margin-top: 1.5rem;
 	overflow: hidden;
+	background: #161b22;
 }
 
 .location-marker-pin {
@@ -1966,6 +1967,29 @@ footer {
 
 	&:hover {
 		background: #21262d !important;
+	}
+}
+
+/* ============================================================
+   LightGallery caption clearance
+   ============================================================ */
+
+// The chat widget is fixed at z-index 9999 — above the lightbox — so it covers
+// the caption's bottom-right corner. lightGallery sets body.lg-on while open.
+body.lg-on #chat-widget-btn,
+body.lg-on #chat-panel {
+	display: none;
+}
+
+// Keep centred caption text clear of lightGallery's own corner controls.
+.lg-sub-html {
+	padding-left: 90px;
+	padding-right: 90px;
+
+	// The global link colour is near-black, invisible on the caption backdrop.
+	a {
+		color: $accent_color;
+		text-decoration: underline;
 	}
 }
 
